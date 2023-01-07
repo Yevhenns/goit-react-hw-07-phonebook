@@ -2,13 +2,13 @@ import React from 'react';
 import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
-import { getContacts } from 'redux/selectors';
+import { getItems } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 import css from './App.module.css';
 
 export const App = () => {
-  const array = useSelector(getContacts);
+  const array = useSelector(getItems);
   
   return (
     <div className={css.container}>

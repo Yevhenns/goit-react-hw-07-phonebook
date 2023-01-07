@@ -1,12 +1,12 @@
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { getItems } from 'redux/selectors';
+import { addContact } from 'api/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 
 import css from './Form.module.css';
 
 export const Form = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(getItems);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
