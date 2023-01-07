@@ -1,4 +1,4 @@
 export const getItems = state => state.contacts.items;
-export const getIsLoading = state => state.contacts.getIsLoading;
-export const getError = state => state.contacts.getError;
+export const getIsLoading = state => state.contacts.isLoading;
+export const getError = state => state.contacts.error;
 export const getFilter = state => state.filter;
