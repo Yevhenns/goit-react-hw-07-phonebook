@@ -1,15 +1,24 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
-import { getItems } from 'redux/selectors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getItems, getIsLoading, getError } from 'redux/selectors';
+import { fetchContacts } from 'api/api';
 
 import css from './App.module.css';
 
 export const App = () => {
   const array = useSelector(getItems);
-  
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
@@ -20,6 +29,7 @@ export const App = () => {
       ) : (
         <>
           <Filter />
+          {isLoading && !error && <p>Loading contacts...</p>}
           <Contacts />
         </>
       )}
