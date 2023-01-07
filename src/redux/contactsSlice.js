@@ -7,7 +7,7 @@ const initialSate = {
   error: null,
 };
 
-const contactsSlice = createSlice({
+export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: initialSate,
 
@@ -53,5 +53,3 @@ const contactsSlice = createSlice({
     },
   },
 });
-
-export const contactsReducer = contactsSlice.reducer;
